@@ -15,6 +15,6 @@ public class TotalPrice {
 
         System.out.println("The total purchase price is INR "+total+" if the quantity "+p+" and unit price is INR "+q);
 
-
+        sc.close();
     }   
 }

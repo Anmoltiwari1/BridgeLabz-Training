@@ -7,5 +7,6 @@ public class AddNumbers {
         int b=sc.nextInt();
 
         System.out.println("Sum of 2 number is :"+ (a+b));
+        sc.close();
     }
 }

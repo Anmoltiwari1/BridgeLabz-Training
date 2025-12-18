@@ -12,7 +12,8 @@ public class MilesConversion2 {
 
         //Printing the value
         System.out.println("Converted value is = "+ conv);
+
+        sc.close();
     }
 }
 
-}

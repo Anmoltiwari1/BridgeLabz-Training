@@ -13,6 +13,7 @@ public class VolumeOfCylinder {
         volume=pie*(r*r)*h;
 
         System.out.println("Volume of cylinder is = "+ volume);
+         sc.close();
         
     }
 }

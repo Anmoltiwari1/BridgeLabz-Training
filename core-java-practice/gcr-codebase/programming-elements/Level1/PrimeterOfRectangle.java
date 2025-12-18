@@ -12,6 +12,7 @@ public class PrimeterOfRectangle{
         per=2*(l+b);
 
         System.out.println("Perimeter of trinagle is = "+ per);
+        sc.close();
 
     }
 }

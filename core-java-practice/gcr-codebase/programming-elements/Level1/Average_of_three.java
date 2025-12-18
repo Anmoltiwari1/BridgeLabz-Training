@@ -13,5 +13,6 @@ public class Average_of_three {
         avg=(a+b+c)/3;
 
         System.out.println("Average of given numbers are = "+avg);
+        sc.close();
     }
 }

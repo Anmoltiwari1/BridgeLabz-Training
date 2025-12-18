@@ -11,5 +11,6 @@ public class PowerCalculation {
 
         res=Math.pow(x, p);
         System.out.println("Power calculation of given numbers = "+ res);
+        sc.close();
     }
 }

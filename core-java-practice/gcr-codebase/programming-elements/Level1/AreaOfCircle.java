@@ -13,5 +13,6 @@ public class AreaOfCircle {
         area=pie*(r*r);
 
         System.out.println("Area calculated = "+area);
+        sc.close();
     }
 }

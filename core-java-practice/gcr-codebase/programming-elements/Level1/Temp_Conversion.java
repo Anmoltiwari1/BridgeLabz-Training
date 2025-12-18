@@ -12,5 +12,6 @@ public class Temp_Conversion {
         c=(F-32)*(5/9);
 
         System.out.println("Converted value is:"+c);
+        sc.close();
     }
 }

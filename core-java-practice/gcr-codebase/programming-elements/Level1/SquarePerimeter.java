@@ -11,5 +11,6 @@ public class SquarePerimeter {
         perimeter=4*a;
 
         System.out.println("The lenght of the side is "+a+" whose perimeter is "+perimeter);
+        sc.close();
     }
 }

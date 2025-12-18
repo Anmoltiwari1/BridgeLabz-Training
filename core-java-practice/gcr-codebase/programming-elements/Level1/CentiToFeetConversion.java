@@ -12,5 +12,6 @@ public class CentiToFeetConversion {
         double inches = totalInches % 12;
 
         System.out.println("Your height in cm is "+height+" while in feet is "+feet+" and inches is "+inches);
+        sc.close();
     }
 }

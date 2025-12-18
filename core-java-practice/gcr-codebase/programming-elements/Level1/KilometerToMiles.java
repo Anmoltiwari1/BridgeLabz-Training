@@ -11,5 +11,6 @@ public class KilometerToMiles {
         conv=km*0.621371;
 
         System.out.println("Converted value is = "+ conv);
+        sc.close();
     }
 }

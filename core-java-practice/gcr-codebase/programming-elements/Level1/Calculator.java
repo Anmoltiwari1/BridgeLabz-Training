@@ -16,6 +16,7 @@ public class Calculator {
         div=a/b;
 
         System.out.println("The addition, subtraction, multiplication and division value of 2 numbers "+a+" and "+b+" is "+add+ ","+sub+","+mul+"and"+div);
+        sc.close();
 
     }
 }

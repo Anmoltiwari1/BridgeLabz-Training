@@ -12,6 +12,7 @@ public class SimpleIntrest {
         SI=(p*r*t)/100;
 
         System.out.println("Vlaue of Simple Intrest = "+SI);
+        sc.close();
 
     }
 }
