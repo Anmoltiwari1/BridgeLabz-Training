@@ -9,8 +9,8 @@ public class ProfitAndLoss {
         //Calculating profit percentage
         double percentage=profit*100;
 
-        System.out.println("Profit calculated is = "+profit);
-        System.out.println("Profit percentage calculated is = "+percentage);
+        System.out.println("The Cost Price is INR "+ CP + "and Selling Price is INR "+ SP);
+        System.out.println("Profit is INR "+ profit + "Profit Percentage is "+percentage);
 
     }
 }
