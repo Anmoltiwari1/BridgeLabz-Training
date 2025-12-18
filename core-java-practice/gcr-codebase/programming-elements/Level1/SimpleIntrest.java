@@ -1,3 +1,4 @@
+package Level1;
 import java.util.*;
 public class SimpleIntrest {
     public static void main(String[] args) {

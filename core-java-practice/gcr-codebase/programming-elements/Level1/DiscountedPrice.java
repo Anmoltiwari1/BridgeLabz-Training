@@ -1,3 +1,4 @@
+package Level1;
 public class DiscountedPrice {
     public static void main(String[] args) {
         int fee=125000;

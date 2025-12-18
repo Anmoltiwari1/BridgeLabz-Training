@@ -1,3 +1,4 @@
+package Level1;
 public class SamAvgPCMPercent {
 
   public static void main(String[] args) {
