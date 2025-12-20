@@ -51,5 +51,7 @@ public class CafeCoffeeDay {
         System.out.println("Total Bill: ₹" + totalBill);
         System.out.println("GST (18%): ₹" + gstAmount);
         System.out.println("Final Payable Amount: ₹" + finalBill);
+
+        sc.close();
     }
 }
