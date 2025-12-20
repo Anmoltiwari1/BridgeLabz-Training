@@ -19,7 +19,7 @@ public class CafeCoffeeDay {
             if (input.equalsIgnoreCase("exit")) {
                 break;
             }
-
+            //Giving choices for the user
             System.out.println("Choose Coffee Type:");
             System.out.println("1. Espresso (₹90)");
             System.out.println("2. Cappuccino (₹120)");
@@ -28,6 +28,7 @@ public class CafeCoffeeDay {
 
             choice = sc.nextInt();
 
+            //Switch case is used for identification for the choice
             switch (choice) {
                 case 1 -> price = 90;
                 case 2 -> price = 120;
@@ -48,6 +49,7 @@ public class CafeCoffeeDay {
         double gstAmount = totalBill * GST_RATE;
         double finalBill = totalBill + gstAmount;
 
+        //Printing the final Bill amount
         System.out.println("Total Bill: ₹" + totalBill);
         System.out.println("GST (18%): ₹" + gstAmount);
         System.out.println("Final Payable Amount: ₹" + finalBill);
