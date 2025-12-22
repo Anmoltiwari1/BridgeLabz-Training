@@ -56,5 +56,7 @@ public class BMICalculator {
 
         String[][] bmiResult = calculateBMI(personData);
         displayResult(bmiResult);
+
+        scanner.close();
     }
 }
