@@ -1,3 +1,5 @@
+package String.Level3;
+
 import java.util.Scanner;
 
 public class BMICalculator {
@@ -56,7 +58,5 @@ public class BMICalculator {
 
         String[][] bmiResult = calculateBMI(personData);
         displayResult(bmiResult);
-
-        scanner.close();
     }
 }
