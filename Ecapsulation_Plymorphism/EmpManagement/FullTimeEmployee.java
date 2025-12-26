@@ -1,4 +1,4 @@
-package Ecapsulation_Plymorphism.Employee_Management_System.Employee_Managment_System;
+package Ecapsulation_Plymorphism.EmpManagement;
 
 public class FullTimeEmployee extends Employee implements Department{
     
