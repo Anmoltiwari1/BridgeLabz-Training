@@ -1,4 +1,3 @@
-package Ecapsulation_Plymorphism;
 abstract class Product{
 	private int productId;
 	private String name; 

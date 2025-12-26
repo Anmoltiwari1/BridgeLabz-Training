@@ -1,4 +1,3 @@
-package Ecapsulation_Plymorphism;
 abstract class FoodItem {
     private String itemName;
     private int price;

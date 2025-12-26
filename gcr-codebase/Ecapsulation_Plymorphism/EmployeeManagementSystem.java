@@ -1,4 +1,3 @@
-package Ecapsulation_Plymorphism;
 abstract class Employee{
 	private int id;
 	private String name;

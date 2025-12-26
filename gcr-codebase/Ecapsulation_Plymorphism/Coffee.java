@@ -1,4 +1,3 @@
-package Ecapsulation_Plymorphism;
 import java.util.*;
 public class Coffee {
 	public static void main(String[] args) {

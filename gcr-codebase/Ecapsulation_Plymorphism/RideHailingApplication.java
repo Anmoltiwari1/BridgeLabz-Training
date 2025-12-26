@@ -1,5 +1,3 @@
-package Ecapsulation_Plymorphism;
-
 abstract class Transport {
     private String vehicleId;
     private String driverName;

@@ -1,4 +1,3 @@
-package Ecapsulation_Plymorphism;
 abstract class Vehicle{
 	private int vehicleNumber; 
 	private String type;

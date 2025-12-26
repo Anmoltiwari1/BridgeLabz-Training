@@ -1,4 +1,3 @@
-package Ecapsulation_Plymorphism;
 import java.util.*;
 
 abstract class Patient {
