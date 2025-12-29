@@ -1,4 +1,4 @@
-package LeetCodeBased;
+package leetCodeBased;
 
 public class Random {
     public static void main(String[] args) {
