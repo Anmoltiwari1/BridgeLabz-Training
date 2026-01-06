@@ -1,4 +1,3 @@
-package review;
 import java.util.*;
 
 public class RemoveDuplicate {

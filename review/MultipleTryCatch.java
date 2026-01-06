@@ -1,4 +1,3 @@
-package review;
 public class MultipleTryCatch {
     
     public static void main(String[] args) {
