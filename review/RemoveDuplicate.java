@@ -1,3 +1,4 @@
+package review;
 import java.util.*;
 
 public class RemoveDuplicate {
@@ -12,6 +13,7 @@ public class RemoveDuplicate {
         System.out.println("String after removing duplicates from it");
         str=remove(str,n);
         System.out.println(str);
+
     }
 
     public static String remove(String str,int n){
