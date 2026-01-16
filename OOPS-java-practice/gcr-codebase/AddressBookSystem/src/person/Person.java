@@ -9,8 +9,19 @@ public class Person {
 	String zip;
 	String phoneNumber;
 	String email;
+	String DOB;
 	
 	
+	public String getDOB() {
+		return DOB;
+	}
+
+
+	public void setDOB(String dOB) {
+		DOB = dOB;
+	}
+
+
 	public String getFirstName() {
 		return FirstName;
 	}
