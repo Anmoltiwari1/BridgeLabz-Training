@@ -48,6 +48,7 @@ The repository is organized to clearly reflect **what was practiced, when it was
 - **05 Jan 2026** – Practiced Java Streams API
 - **07 Jan 2026** – Completed Java Collections and Streams assignments
 - **13 Jan 2026** – Completed Java Regex and JUnit
+- **16 Jan 2026** – Completed Java Annotations and Reflection
 
 
 
@@ -117,4 +118,5 @@ The **OOPS** branch focuses exclusively on **Object-Oriented Programming fundame
 git clone https://github.com/Anmoltiwari1/BridgeLabz-Training.git
 cd BridgeLabz-Training
 git checkout core-java-practice
+
 
