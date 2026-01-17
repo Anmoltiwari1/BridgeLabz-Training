@@ -15,7 +15,8 @@ public class AddressBookMain {
             System.out.println("1. Add Contact");
             System.out.println("2. Edit Contact");
             System.out.println("3. Display Contacts");
-            System.out.println("4. Exit");
+            System.out.println("4. Delete Contact");
+            System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
 
             int choice = sc.nextInt();
@@ -109,8 +110,17 @@ public class AddressBookMain {
                     // DISPLAY CONTACTS
                     addressBook.displayContacts();
                     break;
-
+                    
                 case 4:
+                	//Delete the Contact
+                	System.out.println("Enter the first name");
+                	String firstName=sc.nextLine();
+                	
+                	System.out.println("Enter the last name");
+                	String lastName=sc.nextLine();
+                	
+                	
+                case 5:
                     // EXIT
                     run = false;
                     System.out.println("Exiting Address Book.");

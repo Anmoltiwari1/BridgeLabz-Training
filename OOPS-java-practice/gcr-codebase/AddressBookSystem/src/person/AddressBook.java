@@ -1,6 +1,7 @@
 package person;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 public class AddressBook {
@@ -18,6 +19,23 @@ public class AddressBook {
 		}
 		return null;
 	}
+	
+	//UC4(Deletion by name)
+	public boolean deleteContactByName(String firstName,String lastName) {
+		
+		Iterator<Person> i=contacts.iterator();
+		
+		while(i.hasNext()) {
+			Person person=i.next();
+			
+			if(person.getFirstName().equalsIgnoreCase(firstName) && person.getLastName().equalsIgnoreCase(lastName)) {
+				i.remove();
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	
 	public void displayContacts() {
 		for(Person person:contacts) {
