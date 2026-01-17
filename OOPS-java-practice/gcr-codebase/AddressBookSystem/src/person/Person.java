@@ -1,5 +1,5 @@
 package person;
-
+//UC1 Completed
 public class Person {
 	private String FirstName;
 	private String LastName;
