@@ -113,11 +113,19 @@ public class AddressBookMain {
                     
                 case 4:
                 	//Delete the Contact
-                	System.out.println("Enter the first name");
-                	String firstName=sc.nextLine();
+                	System.out.println("Enter the first name :");
+                	String DeleteFirstName=sc.nextLine();
                 	
-                	System.out.println("Enter the last name");
-                	String lastName=sc.nextLine();
+                	System.out.println("Enter the last name :");
+                	String DeleteLastName=sc.nextLine();
+                	
+                	boolean isDeleted=addressBook.deleteContactByName(DeleteFirstName, DeleteLastName);
+                	
+                	if(isDeleted) {
+                		System.out.println("Contact deleted successfully");
+                	}else {
+                		System.out.println("Contact not found");
+                	}
                 	
                 	
                 case 5:
