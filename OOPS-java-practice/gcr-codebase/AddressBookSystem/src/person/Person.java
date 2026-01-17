@@ -1,52 +1,21 @@
 package person;
 //UC1 Completed
 public class Person {
-	private String FirstName;
-	private String LastName;
-	String address;
-	String city;
-	String state;
-	String zip;
-	String phoneNumber;
-	String email;
-	String DOB;
+	private String firstName;
+	private String lastName;
+	private String address;
+	private String city;
+	private String state;
+	private String zip;
+	private String phoneNumber;
+	private String email;
+	private String DOB;
 	
-	
-	public String getDOB() {
-		return DOB;
-	}
-
-
-	public void setDOB(String dOB) {
-		DOB = dOB;
-	}
-
-
-	public String getFirstName() {
-		return FirstName;
-	}
-
-
-	public void setFirstName(String firstName) {
-		FirstName = firstName;
-	}
-
-
-	public String getLastName() {
-		return LastName;
-	}
-
-
-	public void setLastName(String lastName) {
-		LastName = lastName;
-	}
-
-
 	public Person(String firstName, String lastName, String address, String city, String state, String zip,
 			String phoneNumber, String email) {
 		super();
-		FirstName = firstName;
-		LastName = lastName;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.address = address;
 		this.city = city;
 		this.state = state;
@@ -54,6 +23,86 @@ public class Person {
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 	}
+	
+	public void setAddress(String address) {
+		this.address=address;
+	}
+
+ 
+    public void setCity(String city) {
+    	this.city=city;
+    }
+
+   
+    public void setState(String state) {
+    	this.state=state;
+    }
+
+   
+   public void setZip(String zip) {
+	   this.zip=zip;
+   }
+
+    public void setPhoneNumber(String phoneNumber) {
+    	this.phoneNumber=phoneNumber;
+    }
+
+    public void setEmail(String email) {
+    	this.email=email;
+    }
+    
+    public void setDOB(String dOB) {
+		DOB = dOB;
+	}
+    
+    public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+    
+    public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	
+	public String getAddress() {
+		return address;
+	}
+
+	public String getState() {
+		return state;
+	}
+	
+	public String getCity() {
+		return city;
+	}
+	
+	public String getZip() {
+		return zip;
+	}
+	
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public String getDOB() {
+		return DOB;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
 	
 	
 }
