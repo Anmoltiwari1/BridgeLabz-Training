@@ -1,5 +1,7 @@
 package person;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AddressBookMain {
@@ -27,7 +29,8 @@ public class AddressBookMain {
             System.out.println("4. Edit Contact");
             System.out.println("5. Display Contacts");
             System.out.println("6. Delete Contact");
-            System.out.println("7. Exit");
+            System.out.println("7. Search By City and State");
+            System.out.println("8. Exit");
 
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
@@ -35,10 +38,12 @@ public class AddressBookMain {
 
             switch (choice) {
             
+            	//UC6:Adding new AddressBook
             	case 1://Create new AddressBook
             		System.out.println("Enter the addressBook name");
             		String newName=sc.nextLine();
             		
+            		//UC7:Ensure there is no Duplicate Entry.
             		if(system.searchBookName(newName)) {
             			System.out.println("AddressBook already exists");
             		}else {
@@ -164,8 +169,32 @@ public class AddressBookMain {
                         System.out.println("Contact not found.");
                     }
                     break;
-
+                    
                 case 7:
+                	System.out.println("Enter the state");
+                	String s=sc.nextLine();
+                	System.out.println("Enter the city");
+                	String c=sc.nextLine();
+                	
+                	List<Person> result=new ArrayList<>();
+                	
+                	result=system.searchByCity(c, s);
+                	
+                	if(result.isEmpty()) {
+                		System.out.println("No person found with city :"+s+"and state : "+ c);
+                
+                	} else {
+                		for(Person person:result) {
+                			System.out.println("Name :"+person.getFirstName()+" "+person.getLastName());
+                			System.out.println("Address :"+person.getAddress());
+                			System.out.println("City :"+person.getCity());
+                			System.out.println("State :"+person.getState());
+                			System.out.println("Email :"+person.getEmail());
+                		}
+                	}
+                	
+
+                case 8:
                     run = false;
                     System.out.println("Exiting...");
                     break;

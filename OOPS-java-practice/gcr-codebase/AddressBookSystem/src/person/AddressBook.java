@@ -2,6 +2,7 @@ package person;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 
 public class AddressBook {
@@ -18,6 +19,18 @@ public class AddressBook {
 			}
 		}
 		return null;
+	}
+	
+	public List<Person> findContactByCityAndState(String City,String State) {
+		
+		List<Person> result=new ArrayList<>();
+		
+		for(Person person:contacts) {
+			if(person.getCity().equalsIgnoreCase(City) && person.getState().equalsIgnoreCase(State)) {
+				result.add(person);
+			}
+		}
+		return result;
 	}
 	
 	//UC4(Deletion by name)
