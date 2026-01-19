@@ -7,32 +7,71 @@ public class AddressBookMain {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        AddressBook addressBook = new AddressBook();
+        AddressBookSystem system=new AddressBookSystem();
+        
+        AddressBook currentBook=null;
+        String currentBookName=null;
+        
         boolean run = true;
 
         while (run) {
-            System.out.println("\n===== ADDRESS BOOK MENU =====");
-            System.out.println("1. Add Contact");
-            System.out.println("2. Edit Contact");
-            System.out.println("3. Display Contacts");
-            System.out.println("4. Delete Contact");
-            System.out.println("5. Exit");
-            System.out.print("Enter your choice: ");
 
+            System.out.println("\n==============================");
+            System.out.println("Current AddressBook: " + 
+                (currentBookName == null ? "NONE" : currentBookName));
+            System.out.println("==============================");
+
+            System.out.println("1. Create new AddressBook");
+            System.out.println("2. Select AddressBook");
+            System.out.println("3. Add Contact");
+            System.out.println("4. Edit Contact");
+            System.out.println("5. Display Contacts");
+            System.out.println("6. Delete Contact");
+            System.out.println("7. Exit");
+
+            System.out.print("Enter choice: ");
             int choice = sc.nextInt();
-            sc.nextLine(); // consume newline
+            sc.nextLine(); 
 
             switch (choice) {
+            
+            	case 1://Create new AddressBook
+            		System.out.println("Enter the addressBook name");
+            		String newName=sc.nextLine();
+            		
+            		if(system.searchBookName(newName)) {
+            			System.out.println("AddressBook already exists");
+            		}else {
+            			system.addNewBook(newName, new AddressBook());
+            			System.out.println("AddressBook created successfully");
+            		}
+            		break;
+            	
+            	case 2://Select addressBook
+            		System.out.println("Enter the AddressBook name to be work on:");
+            		String selectName=sc.nextLine();
+            		
+            		if(!system.searchBookName(selectName)) {
+            			System.out.println("Book not found");
+            		}else {
+            			currentBook=system.getBook(selectName);
+            			currentBookName=selectName;
+            			System.out.println("Selected AddressBook: "+selectName);
+            		}
+            		break;
 
-                case 1:
-                    // ADD CONTACT (UC2)
-                    System.out.println("\nEnter contact details");
+
+                case 3: // ADD CONTACT
+                    if (currentBook == null) {
+                        System.out.println("Select an AddressBook first.");
+                        break;
+                    }
 
                     System.out.print("First Name: ");
-                    String firstName = sc.nextLine();
+                    String fn = sc.nextLine();
 
                     System.out.print("Last Name: ");
-                    String lastName = sc.nextLine();
+                    String ln = sc.nextLine();
 
                     System.out.print("Address: ");
                     String address = sc.nextLine();
@@ -46,96 +85,93 @@ public class AddressBookMain {
                     System.out.print("Zip: ");
                     String zip = sc.nextLine();
 
-                    System.out.print("Phone Number: ");
-                    String phoneNumber = sc.nextLine();
+                    System.out.print("Phone: ");
+                    String phone = sc.nextLine();
 
                     System.out.print("Email: ");
                     String email = sc.nextLine();
 
-                    System.out.print("DOB: ");
-                    String dob = sc.nextLine();
+                    Person p = new Person(fn, ln, address, city, state, zip, phone, email);
+                    currentBook.addContact(p);
 
-                    Person person = new Person(
-                            firstName, lastName, address,
-                            city, state, zip, phoneNumber, email
-                    );
-                    person.setDOB(dob);
-
-                    addressBook.addContact(person);
-                    System.out.println("Contact added successfully.");
+                    System.out.println("Contact added.");
                     break;
 
-                case 2:
-                    // EDIT CONTACT (UC3)
-                    System.out.print("\nEnter First Name to edit: ");
-                    String editFirstName = sc.nextLine();
+                case 4: // EDIT CONTACT
+                    if (currentBook == null) {
+                        System.out.println("Select an AddressBook first.");
+                        break;
+                    }
 
-                    System.out.print("Enter Last Name to edit: ");
-                    String editLastName = sc.nextLine();
+                    System.out.print("First Name to edit: ");
+                    String efn = sc.nextLine();
 
-                    Person existingPerson =
-                            addressBook.findContactByName(editFirstName, editLastName);
+                    System.out.print("Last Name to edit: ");
+                    String eln = sc.nextLine();
 
-                    if (existingPerson == null) {
+                    Person editPerson = currentBook.findContactByName(efn, eln);
+
+                    if (editPerson == null) {
                         System.out.println("Contact not found.");
                     } else {
-                        System.out.println("Enter new details");
-
                         System.out.print("New Address: ");
-                        existingPerson.setAddress(sc.nextLine());
+                        editPerson.setAddress(sc.nextLine());
 
                         System.out.print("New City: ");
-                        existingPerson.setCity(sc.nextLine());
+                        editPerson.setCity(sc.nextLine());
 
                         System.out.print("New State: ");
-                        existingPerson.setState(sc.nextLine());
+                        editPerson.setState(sc.nextLine());
 
                         System.out.print("New Zip: ");
-                        existingPerson.setZip(sc.nextLine());
+                        editPerson.setZip(sc.nextLine());
 
-                        System.out.print("New Phone Number: ");
-                        existingPerson.setPhoneNumber(sc.nextLine());
+                        System.out.print("New Phone: ");
+                        editPerson.setPhoneNumber(sc.nextLine());
 
                         System.out.print("New Email: ");
-                        existingPerson.setEmail(sc.nextLine());
+                        editPerson.setEmail(sc.nextLine());
 
-                        System.out.print("New DOB: ");
-                        existingPerson.setDOB(sc.nextLine());
-
-                        System.out.println("Contact updated successfully.");
+                        System.out.println("Contact updated.");
                     }
                     break;
 
-                case 3:
-                    // DISPLAY CONTACTS
-                    addressBook.displayContacts();
+                case 5: // DISPLAY
+                    if (currentBook == null) {
+                        System.out.println("Select an AddressBook first.");
+                        break;
+                    }
+                    currentBook.displayContacts();
                     break;
-                    
-                case 4:
-                	//Delete the Contact
-                	System.out.println("Enter the first name :");
-                	String DeleteFirstName=sc.nextLine();
-                	
-                	System.out.println("Enter the last name :");
-                	String DeleteLastName=sc.nextLine();
-                	
-                	boolean isDeleted=addressBook.deleteContactByName(DeleteFirstName, DeleteLastName);
-                	
-                	if(isDeleted) {
-                		System.out.println("Contact deleted successfully");
-                	}else {
-                		System.out.println("Contact not found");
-                	}
-                	
-                	
-                case 5:
-                    // EXIT
+
+                case 6: // DELETE
+                    if (currentBook == null) {
+                        System.out.println("Select an AddressBook first.");
+                        break;
+                    }
+
+                    System.out.print("First Name to delete: ");
+                    String dfn = sc.nextLine();
+
+                    System.out.print("Last Name to delete: ");
+                    String dln = sc.nextLine();
+
+                    boolean deleted = currentBook.deleteContactByName(dfn, dln);
+
+                    if (deleted) {
+                        System.out.println("Contact deleted.");
+                    } else {
+                        System.out.println("Contact not found.");
+                    }
+                    break;
+
+                case 7:
                     run = false;
-                    System.out.println("Exiting Address Book.");
+                    System.out.println("Exiting...");
                     break;
 
                 default:
-                    System.out.println("Invalid choice. Try again.");
+                    System.out.println("Invalid choice.");
             }
         }
 
