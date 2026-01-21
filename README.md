@@ -53,6 +53,7 @@ The repository is organized to clearly reflect **what was practiced, when it was
 
 ### 📁 Java IO Programming
 - **20 Jan 2026** – Practiced CSV Handling (Reading, Writing, Processing CSV files)
+- **21 Jan 2026** – Practiced Json Handling (Reading, Writing, Processing CSV files)
 
 ---
 
@@ -122,3 +123,4 @@ The **IO-Programming-Java** branch focuses on **Java Input/Output**, including *
 git clone https://github.com/Anmoltiwari1/BridgeLabz-Training.git
 cd BridgeLabz-Training
 git checkout core-java-practice
+
