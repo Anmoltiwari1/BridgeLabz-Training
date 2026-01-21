@@ -49,7 +49,10 @@ The repository is organized to clearly reflect **what was practiced, when it was
 - **07 Jan 2026** – Completed Java Collections and Streams assignments
 - **13 Jan 2026** – Completed Java Regex and JUnit
 
+---
 
+### 📁 Java IO Programming
+- **20 Jan 2026** – Practiced CSV Handling (Reading, Writing, Processing CSV files)
 
 ---
 
@@ -61,6 +64,7 @@ The repository is organized to clearly reflect **what was practiced, when it was
 | `core-java-practice` | Complete Core Java practice codebase | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/core-java-practice |
 | `OOPS` | Object-Oriented Programming concepts & practice | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/OOPS |
 | `CollectionAndGenerics` | Java Collections Framework & Generics practice | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/Collection-Java-practice/Generics_And_Collections |
+| `IO-Programming-Java` | Java IO, File Handling, JSON & CSV processing | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/IO-Programming-Java/IO-Programming-Java |
 
 ---
 
@@ -75,19 +79,6 @@ The **OOPS** branch focuses exclusively on **Object-Oriented Programming fundame
 | `gcr-codebase` | Core OOPS concepts with structured exercises | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/OOPS/gcr-codebase |
 | `scenario-based` | Real-world, scenario-driven OOPS problems | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/OOPS/scenario-based |
 | `leetcode-based-problems` | Interview-style OOPS & logic problems | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/OOPS/leetcode-based-problems |
-
----
-
-### 📁 `gcr-codebase` (inside OOPS) – Folder Breakdown
-
-| Folder Name | Concepts Covered | Link |
-|------------|------------------|------|
-| `Classes_And_Objects` | Class structure, object creation, methods | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/OOPS/gcr-codebase/Classes_And_Objects |
-| `Constructor_AccessModifiers` | Constructors & access modifiers | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/OOPS/gcr-codebase/Constructor_AccessModifiers |
-| `Ecapsulation_Plymorphism` | Encapsulation & polymorphism | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/OOPS/gcr-codebase/Ecapsulation_Plymorphism |
-| `Inheritance` | Inheritance & method overriding | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/OOPS/gcr-codebase/Inheritance |
-| `OOPs_Principles` | Core OOPS principles | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/OOPS/gcr-codebase/OOPs_Principles |
-| `static_final` | Static members & final keyword | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/OOPS/gcr-codebase/static_final |
 
 ---
 
@@ -111,10 +102,23 @@ The **OOPS** branch focuses exclusively on **Object-Oriented Programming fundame
 
 ---
 
+## 📘 IO Programming Branch – Detailed Structure
+
+The **IO-Programming-Java** branch focuses on **Java Input/Output**, including **File Handling, JSON processing, CSV handling**, and **data transformation tasks**.
+
+### 📂 High-Level Structure inside `IO-Programming-Java`
+
+| Folder Name | Description | Link |
+|------------|------------|------|
+| `gcr_codebase` | Core IO concepts (File, Reader/Writer, JSON, CSV basics) | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/IO-Programming-Java/IO-Programming-Java/src/gcr_codebase |
+| `Scenario_Based` | Real-world IO & data-handling problems | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/IO-Programming-Java/IO-Programming-Java/src/Scenario_Based |
+| `leetcode_codebase` | IO-focused interview & logic problems | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/IO-Programming-Java/IO-Programming-Java/src/leetcode_codebase |
+
+---
+
 ## 🚀 How to Run the Code
 
 ```bash
 git clone https://github.com/Anmoltiwari1/BridgeLabz-Training.git
 cd BridgeLabz-Training
 git checkout core-java-practice
-
