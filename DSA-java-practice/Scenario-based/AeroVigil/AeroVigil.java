@@ -1,3 +1,4 @@
+package AeroVigil;
 public class AeroVigil {
     public static void main(String[] args){
         System.out.println(validateFlightNumber("FL-1000"));
