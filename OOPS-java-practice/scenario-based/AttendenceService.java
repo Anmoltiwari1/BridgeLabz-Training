@@ -1,11 +1,3 @@
-/*Nouns:(Classes)
-Student,Session,AttendenceService
-
-Verbs:(methods)
-mark,remove,display attendance
-
-DataStructure:Set,Map */
-
 import java.util.*;
 
 class DuplicateAttendanceException extends Exception{
