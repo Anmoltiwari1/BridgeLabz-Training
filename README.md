@@ -53,9 +53,18 @@ The repository is organized to clearly reflect **what was practiced, when it was
 
 ### 📁 Java IO Programming
 - **20 Jan 2026** – Practiced CSV Handling (Reading, Writing, Processing CSV files)
-- **21 Jan 2026** – Practiced Json Handling (Reading, Writing, Processing CSV files)
+- **27 Jan 2026** – Practiced Json Handling (Reading, Writing, Processing CSV files)
 
 ---
+
+
+### 📁 Java 8 And its Features
+- **29 Jan 2026** –Submission of Lambda Expressions
+- **1 feb 2026** – Submission of Functional Interface
+- **2  feb 2026** –Submission of Stream API
+- **2 feb 2026** – Submission of collectors
+- **2 feb 2026** – Workshop on Java8 Features
+  
 
 ## 🔗 Important Branches
 
@@ -123,4 +132,5 @@ The **IO-Programming-Java** branch focuses on **Java Input/Output**, including *
 git clone https://github.com/Anmoltiwari1/BridgeLabz-Training.git
 cd BridgeLabz-Training
 git checkout core-java-practice
+
 
