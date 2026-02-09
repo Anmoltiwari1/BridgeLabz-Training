@@ -1,9 +1,3 @@
-/*
-classes --> tab,BroweserBuddy
-methods-->BackNegivate,ForwardNevigate
-Data Structures-->Double Linked list,Stack
- */
-
 import java.util.*;
 
 class Tab{
