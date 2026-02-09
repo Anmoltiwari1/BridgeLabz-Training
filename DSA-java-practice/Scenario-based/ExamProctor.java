@@ -1,6 +1,6 @@
 import java.util.*;
 
-// ---------------- QUESTION CLASS ----------------
+
 class Question {
     private int questionId;
     private String question;
@@ -25,19 +25,19 @@ class Question {
     }
 }
 
-// ---------------- EXAM PROCTOR SYSTEM ----------------
+
 public class ExamProctor {
 
     Stack<Integer> navigation = new Stack<>();
     HashMap<Integer,String> answers = new HashMap<>();
     HashMap<Integer,Question> questionBank = new HashMap<>();
 
-    // Add questions to exam
+    
     public void addQuestion(Question q){
         questionBank.put(q.getQuestionId(), q);
     }
 
-    // Visit question → push into stack
+    
     public void visitQuestion(int id){
         if(questionBank.containsKey(id)){
             navigation.push(id);
@@ -48,7 +48,7 @@ public class ExamProctor {
         }
     }
 
-    // Go back to previous question
+  
     public void goBack(){
         if(navigation.isEmpty()){
             System.out.println("No previous question");
@@ -58,7 +58,7 @@ public class ExamProctor {
         System.out.println("Moved back to previous question");
     }
 
-    // Store answer in HashMap
+   
     public void answerQuestion(int id, String ans){
         if(!questionBank.containsKey(id)){
             System.out.println("Invalid Question ID");
@@ -68,7 +68,7 @@ public class ExamProctor {
         System.out.println("Answer saved for Q" + id);
     }
 
-    // Calculate score using function
+    
     public int calculateScore(){
         int score = 0;
 
@@ -83,20 +83,19 @@ public class ExamProctor {
         return score;
     }
 
-    // Submit exam
     public void submitExam(){
         int score = calculateScore();
         System.out.println("\nExam Submitted!");
         System.out.println("Your Score = " + score + "/" + questionBank.size());
     }
 
-    // ---------------- MAIN (MENU DRIVEN) ----------------
+   
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
         ExamProctor exam = new ExamProctor();
 
-        // Preload questions
+        
         exam.addQuestion(new Question(1,"Java is platform independent? (yes/no)","yes"));
         exam.addQuestion(new Question(2,"2 + 2 = ?","4"));
         exam.addQuestion(new Question(3,"Stack follows LIFO? (yes/no)","yes"));
