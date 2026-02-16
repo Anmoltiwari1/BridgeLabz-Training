@@ -1,88 +1,161 @@
 import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+
+@FunctionalInterface
+interface WageCalculator {
+    int calculate(int hours, int wagePerHour);
+}
+
+// UC12: Interface approach
+interface IEmpWageBuilder {
+    void addCompany(String company, int wagePerHour, int workingDays, int maxHours);
+    void computeWages();
+    int getTotalWage(String company);
+    Map<String, Integer> getAllWages();
+}
+
+// UC10: CompanyEmpWage class
+class CompanyEmpWage {
+    String company;
+    int wagePerHour; // UC2: Wage per hour
+    int workingDays; // UC5: Working days per month
+    int maxHours; // UC6: Max hours condition
+    int totalWage; // UC9: Save total wage
+    List<Integer> dailyWages; // UC13: Store daily wages
+    
+    CompanyEmpWage(String company, int wagePerHour, int workingDays, int maxHours) {
+        this.company = company;
+        this.wagePerHour = wagePerHour;
+        this.workingDays = workingDays;
+        this.maxHours = maxHours;
+        this.dailyWages = new ArrayList<>();
+    }
+    
+    public String getCompany() { return company; }
+    public int getTotalWage() { return totalWage; }
+    public List<Integer> getDailyWages() { return dailyWages; }
+}
+
+// UC11: EmpWageBuilder with ArrayList
+class EmpWageBuilder implements IEmpWageBuilder {
+    static final int FULL_DAY_HOURS = 8; // UC2: Full day hours
+    static final int PART_TIME_HOURS = 4; // UC3: Part time hours
+    static final int IS_ABSENT = 0; // UC1: Absent
+    static final int IS_FULL_TIME = 1; // UC1: Full time
+    static final int IS_PART_TIME = 2; // UC1: Part time
+    
+    List<CompanyEmpWage> companies; // UC11: ArrayList for multiple companies
+    WageCalculator wageCalculator;
+    
+    EmpWageBuilder() {
+        companies = new ArrayList<>();
+        wageCalculator = (hours, wagePerHour) -> hours * wagePerHour; // UC7: Lambda for wage calculation
+    }
+    
+    // UC8: Add company with parameters
+    public void addCompany(String company, int wagePerHour, int workingDays, int maxHours) {
+        companies.add(new CompanyEmpWage(company, wagePerHour, workingDays, maxHours));
+    }
+    
+    // UC8: Compute wages for all companies
+    public void computeWages() {
+        companies.forEach(company -> {
+            company.totalWage = computeCompanyWage(company);
+            System.out.println("Total wage for " + company.company + ": Rs." + company.totalWage);
+        });
+    }
+    
+    // UC7: Class method to compute wage
+    int computeCompanyWage(CompanyEmpWage company) {
+        Supplier<Integer> randomEmpType = () -> (int)(Math.random() * 3); // UC1: Random attendance
+        Function<Integer, Integer> getHours = empType -> {
+            switch (empType) { // UC4: Switch case
+                case IS_FULL_TIME: return FULL_DAY_HOURS; // UC2: Full time
+                case IS_PART_TIME: return PART_TIME_HOURS; // UC3: Part time
+                default: return 0; // UC1: Absent
+            }
+        };
+        
+        int totalHours = 0, totalDays = 0;
+        
+        // UC6: Calculate till max hours or days
+        while (totalHours < company.maxHours && totalDays < company.workingDays) {
+            int dailyHours = getHours.apply(randomEmpType.get());
+            
+            if (totalHours + dailyHours > company.maxHours) {
+                dailyHours = company.maxHours - totalHours;
+            }
+            
+            totalHours += dailyHours;
+            int dailyWage = wageCalculator.calculate(dailyHours, company.wagePerHour); // UC2: Calculate daily wage
+            company.dailyWages.add(dailyWage); // UC13: Store daily wage
+            totalDays++;
+        }
+        
+        return company.dailyWages.stream().mapToInt(Integer::intValue).sum(); // UC13: Sum using streams
+    }
+    
+    // UC14: Get total wage by company
+    public int getTotalWage(String company) {
+        return companies.stream()
+                .filter(c -> c.company.equals(company))
+                .findFirst()
+                .map(c -> c.totalWage)
+                .orElse(-1);
+    }
+    
+    // UC13: Get all wages as map
+    public Map<String, Integer> getAllWages() {
+        return companies.stream()
+                .collect(Collectors.toMap(
+                    CompanyEmpWage::getCompany,
+                    CompanyEmpWage::getTotalWage
+                ));
+    }
+    
+    public void printWageSummary() {
+        System.out.println("\n=== Wage Summary ===");
+        DoubleSummaryStatistics stats = companies.stream()
+                .mapToDouble(CompanyEmpWage::getTotalWage)
+                .summaryStatistics();
+        
+        System.out.println("Total Companies: " + stats.getCount());
+        System.out.println("Total Wages Paid: Rs." + stats.getSum());
+        System.out.println("Average Wage: Rs." + String.format("%.2f", stats.getAverage()));
+        System.out.println("Max Wage: Rs." + stats.getMax());
+        System.out.println("Min Wage: Rs." + stats.getMin());
+    }
+    
+    public void printCompaniesAboveThreshold(int threshold) {
+        System.out.println("\nCompanies with wage above Rs." + threshold + ":");
+        companies.stream()
+                .filter(c -> c.totalWage > threshold)
+                .forEach(c -> System.out.println(c.company + ": Rs." + c.totalWage));
+    }
+}
 
 public class EmployeeWageComputation {
-    // Class variables
-    static final int WAGE_PER_HOUR = 20;
-    static final int FULL_DAY_HOURS = 8;
-    static final int PART_TIME_HOURS = 4;
-    static final int WORKING_DAYS = 20;
-    static final int MAX_HOURS = 100;
-    
-    // Instance variables
-    String name;
-    List<Integer> dailyWages = new ArrayList<>();
-    
-    public EmployeeWageComputation(String name) {
-        this.name = name;
-    }
-    
     public static void main(String[] args) {
-        System.out.println("Welcome to Employee Wage Computation Program on Master Branch");
+        System.out.println("Welcome to Employee Wage Computation Program");
         
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Employee Name: ");
-        EmployeeWageComputation emp = new EmployeeWageComputation(sc.nextLine());
+        EmpWageBuilder builder = new EmpWageBuilder();
         
-        // UC1: Check attendance and calculate daily wage
-        emp.calculateDailyWage();
+        // UC8: Multiple companies with different parameters
+        builder.addCompany("TCS", 20, 20, 100);
+        builder.addCompany("Infosys", 25, 22, 120);
+        builder.addCompany("Wipro", 18, 20, 100);
+        builder.addCompany("Amazon", 30, 20, 100);
         
-        // UC5: Calculate monthly wages
-        emp.calculateMonthlyWages();
+        builder.computeWages();
         
-        // UC6: Calculate wages till condition
-        emp.calculateWagesTillCondition();
+        // UC14: Query wages by company
+        System.out.println("\n=== Querying Wages ===");
+        builder.getAllWages().forEach((company, wage) -> 
+            System.out.println(company + " Total Wage: Rs." + wage)
+        );
         
-        sc.close();
-    }
-    
-    // UC1: Random attendance check
-    boolean isPresent() {
-        return Math.random() < 0.5;
-    }
-    
-    // UC2 & UC4: Calculate daily wage using switch case
-    int getDailyWage() {
-        if (!isPresent()) return 0;
-        
-        int empType = (int)(Math.random() * 2) + 1;
-        switch(empType) {
-            case 1: return FULL_DAY_HOURS * WAGE_PER_HOUR;  // UC2: Full time
-            case 2: return PART_TIME_HOURS * WAGE_PER_HOUR; // UC3: Part time
-            default: return 0;
-        }
-    }
-    
-    void calculateDailyWage() {
-        int wage = getDailyWage();
-        System.out.println("Daily Wage: Rs." + wage);
-    }
-    
-    // UC5: Monthly wage calculation
-    void calculateMonthlyWages() {
-        int totalWage = 0;
-        for(int day = 1; day <= WORKING_DAYS; day++) {
-            int wage = getDailyWage();
-            dailyWages.add(wage);
-            totalWage += wage;
-        }
-        System.out.println("Monthly Wage: Rs." + totalWage);
-    }
-    
-    // UC6: Calculate till condition (100 hours or 20 days)
-    void calculateWagesTillCondition() {
-        int totalHours = 0, workingDays = 0, totalWage = 0;
-        
-        while(totalHours < MAX_HOURS && workingDays < WORKING_DAYS) {
-            if(isPresent()) {
-                int hours = (Math.random() < 0.5) ? FULL_DAY_HOURS : PART_TIME_HOURS;
-                if(totalHours + hours > MAX_HOURS) hours = MAX_HOURS - totalHours;
-                
-                totalHours += hours;
-                workingDays++;
-                totalWage += hours * WAGE_PER_HOUR;
-            }
-        }
-        
-        System.out.println("Total Hours: " + totalHours + ", Days: " + workingDays + ", Wage: Rs." + totalWage);
+        builder.printWageSummary();
+        builder.printCompaniesAboveThreshold(2000);
     }
 }
