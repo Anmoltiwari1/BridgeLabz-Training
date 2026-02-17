@@ -85,6 +85,8 @@ The repository is organized to clearly reflect **what was practiced, when it was
 | `OOPS` | Object-Oriented Programming concepts & practice | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/OOPS |
 | `CollectionAndGenerics` | Java Collections Framework & Generics practice | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/Collection-Java-practice/Generics_And_Collections |
 | `IO-Programming-Java` | Java IO, File Handling, JSON & CSV processing | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/IO-Programming-Java/IO-Programming-Java |
+| `Java-Multi-Threading` | Java Multithreading concepts & practice | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/Java-Multi-Threading |
+| `SolutionDesigning` | Solution Design workshops & exercises | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/SolutionDesigning/SolutionDesigning |
 
 ---
 
@@ -136,12 +138,43 @@ The **IO-Programming-Java** branch focuses on **Java Input/Output**, including *
 
 ---
 
+## 📘 Java 8 Features – Detailed Structure
+
+| Folder Name | Description | Link |
+|------------|------------|------|
+| `Java8-Features (Main Branch)` | Java 8 assignments & workshop | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/IO-Programming-Java |
+| `gcr_codebase` | Core Java 8 concepts & exercises | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/IO-Programming-Java/IO-Programming-Java/src/gcr_codebase |
+| `scenario_based` | Scenario-driven Java 8 problems | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/IO-Programming-Java/IO-Programming-Java/src/Scenario_Based |
+| `leetcode_codebase` | Interview-style Java 8 problems | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/IO-Programming-Java/IO-Programming-Java/src/leetcode_codebase |
+
+---
+
+## 🧵 Java Multi-Threading Branch – Detailed Structure
+
+| Folder Name | Description | Link |
+|------------|------------|------|
+| `gcr-codebase` | Core multithreading concepts & exercises | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/Java-Multi-Threading/Java-Multi-Threading/gcr-codebase/JavaMultiThreading |
+| `scenario-based` | Scenario-driven multithreading problems | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/Java-Multi-Threading/Java-Multi-Threading/Scenario-based |
+| `leetcode-codebase` | Interview-style concurrency problems | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/Java-Multi-Threading/Java-Multi-Threading/Leetcode-codebase |
+
+---
+
+
+## 🧠 Solution Designing Branch – Detailed Structure
+
+| Folder Name | Description | Link |
+|------------|------------|------|
+| `SolutionDesigning` | Solution design workshop & exercises | https://github.com/Anmoltiwari1/BridgeLabz-Training/tree/SolutionDesigning/SolutionDesigning |
+
+
+
 ## 🚀 How to Run the Code
 
 ```bash
 git clone https://github.com/Anmoltiwari1/BridgeLabz-Training.git
 cd BridgeLabz-Training
 git checkout core-java-practice
+
 
 
 
