@@ -64,6 +64,16 @@ The repository is organized to clearly reflect **what was practiced, when it was
 - **2  feb 2026** –Submission of Stream API
 - **2 feb 2026** – Submission of collectors
 - **2 feb 2026** – Workshop on Java8 Features
+
+
+### 📁 Solution Designing
+- **7 feb 2026** – Workshop on Java8 Features
+
+### 📁 Multi-Threading
+- **8 feb 2026** – Mutli-Threading Submission
+
+### 📁 JDBC & DBMS
+- **8 feb 2026** –Submission of DBMS
   
 
 ## 🔗 Important Branches
@@ -132,5 +142,6 @@ The **IO-Programming-Java** branch focuses on **Java Input/Output**, including *
 git clone https://github.com/Anmoltiwari1/BridgeLabz-Training.git
 cd BridgeLabz-Training
 git checkout core-java-practice
+
 
 
