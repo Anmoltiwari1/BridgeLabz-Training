@@ -1,0 +1,15 @@
+INFO: Application started successfully
+DEBUG: Loading configuration files
+INFO: Database connection established
+WARNING: Memory usage is high
+ERROR: Failed to connect to external service
+INFO: Processing user request
+DEBUG: Validating input parameters
+ERROR: Invalid user credentials
+INFO: Request processed successfully
+WARNING: Disk space running low
+ERROR: Database connection timeout
+INFO: Backup process initiated
+DEBUG: Cache cleared successfully
+ERROR: File not found exception
+INFO: System running normally
