@@ -1,5 +1,0 @@
-HELLO WORLD
-This Is A MIXED Case String
-JAVA PROGRAMMING IS FUN
-Convert ALL Uppercase TO lowercase
-TESTING Filter Streams
